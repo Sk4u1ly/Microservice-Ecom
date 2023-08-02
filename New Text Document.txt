@@ -1,0 +1,38 @@
+
+
+# MySQL Configuration
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/product?useSSL=false&serverTimezone=UTC
+    username: root
+    password: root@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  # Application Name
+  application:
+    name: PRODUCT-APPLICATION
+
+#Eureka Configuration
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+     defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8787/eureka/}
+
+
+
+circut breacker Regelince4j
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
+</dependency>

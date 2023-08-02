@@ -1,0 +1,24 @@
+Server:
+  port: 8089
+
+# MySQL Configuration
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/product?useSSL=false&serverTimezone=UTC
+    username: root
+    password: root@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  # Application Name
+  application:
+    name: PRODUCT-APPLICATION
+
+  config:
+    import: configserver:http://localhost:9296
